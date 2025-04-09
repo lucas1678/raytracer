@@ -4,6 +4,8 @@
 #include <vector>
 #include "pixel.hh"
 #include "vec3.hh"
+#include "scene.hh"
+#include "disk.hh"
 
 //  might want to rename this to "screen" or "camera window"
 class CameraWindow {

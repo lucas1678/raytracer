@@ -16,6 +16,12 @@ public:
     ~Pixel() {}
 
     friend std::ostream& operator<<(std::ostream& os, const Pixel& pix);
+public:
+    static const Pixel WHITE;
+    static const Pixel GREY;
+    static const Pixel RED;
+    static const Pixel BLUE;
+    static const Pixel BLACK;
 };
 
 #endif

@@ -1,5 +1,7 @@
 #include "vec3.hh"
 
+using Ray = vec3;
+
 //  we want this class (vec3 AKA ray) to play nice with objects. As in, there should be runtime POLYMORPHISM
 //  meaning a ray can call a method such as checkColision(object) and each object (sphere, plane etc.) will have the instructions
 //  on how a ray can check colisions with said object!
@@ -47,4 +49,20 @@ float vec3::magnitude() const {
 
 void vec3::normalize(){
     *this = *this * (1/(this->magnitude()));
+}
+
+float vec3::getPlaneCollisionParameter(const vec3& normal, const vec3& point_on_plane) const {
+    float numerator = point_on_plane.dot(normal);
+    //std::cout << "Denominator is dot product between: " << *this << " and " << normal << std::endl;
+    float denominator = this->dot(normal);
+    //std::cout << denominator << std::endl;
+    if (abs(denominator) < 0.00001) {return -1;}  // when ray and plane are parallel!
+
+    float t = numerator / denominator;
+    return t;
+}
+
+//  magnitude of the difference between this vector and the vector pointing to the point.
+float vec3::distanceFrom(const vec3& point) const {
+    return (*this  - point).magnitude();  
 }

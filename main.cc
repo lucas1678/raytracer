@@ -6,9 +6,9 @@
 int main(){
     int window_height = 400;
     int window_width = 800;
-    vec3 window_pos{1,1,1};
+    vec3 window_pos{-400,200,-1};
     CameraWindow cam_window{window_height, window_width, window_pos};
-    std::vector<Pixel> pixel_list;
+    /*std::vector<Pixel> pixel_list;
 
     for(int i=0; i<window_height; i++){
         for(int j=0; j<window_width; j++){
@@ -20,7 +20,9 @@ int main(){
         }
     }
 
-    cam_window.draw(pixel_list);
+    cam_window.draw(pixel_list);*/
+
+    cam_window.draw();
 
     return 0;
 }

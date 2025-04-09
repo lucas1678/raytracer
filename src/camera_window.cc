@@ -16,20 +16,36 @@ void CameraWindow::draw() const {
             vec3 ray{m_Window_pos.x() + grid_spacing/2 + i*grid_spacing, 
                      m_Window_pos.y() - grid_spacing/2 - j*grid_spacing, 
                      m_Window_pos.z()};
+            ray.normalize();
             generated_rays[ray_index] = ray;
         }
     }
 
+    /*for(const auto& ray : generated_rays){
+        std::cout << ray << std::endl;
+    }*/
 
     //  ~~~~~~~  check what these generated rays collide with, and convert them to the appropriate pixel/color
+    //  for now, won't be using the scene. Will just be manually adding a disk!
+    Object* disk = new Disk(vec3(0,0,1), 500.0, vec3(0,0,-5), Color::GREY);
+    std::vector<Color> color_list;
 
-    
+    for(const auto& ray : generated_rays) {
+        // for(const Object& object : scene->ObjectList())
+        if(disk->hasCollisionWith(ray)){
+            color_list.push_back(disk->getColor());
+        }
+        else color_list.push_back(Color::BLUE);
+    }
 
+    //  Draw to cout based on color_list
+    std::cout << "P3\n" << m_Window_width << ' ' << m_Window_height << "\n255\n";
+    for(const auto& pixel : color_list){
+        std::cout << pixel << '\n';
+    }
+    std::cout << std::flush;
 
-                   
-
-
-
+    delete disk;
 }
 
 void CameraWindow::draw(std::vector<Pixel> pixel_list) const {

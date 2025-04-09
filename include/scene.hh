@@ -1,19 +1,19 @@
 #ifndef SCENE_HH
 #define SCENE_HH
 
-#include "plane.hh"
+#include "object.hh"
 #include <vector>
 
 //  right now, this only works with a plane!! Def modify later so we can get any shape (sphere, plane, cube, triangle/pyramid etc.)
 
 class Scene {
 private:
-    std::vector<Plane> m_Planes;
+    //std::vector<Plane> m_Planes;
 public:
-    Scene() {};
-    ~Scene() {};
+    //Scene() {};
+    //~Scene() {};
 
-    void addPlane(Plane plane) const;
+    //void addPlane(Plane plane) const;
 };
 
 #endif
