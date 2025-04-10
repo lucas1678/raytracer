@@ -18,6 +18,9 @@ public:
     ~Disk() {};
 
     bool hasCollisionWith(const Ray& ray) const override;
+    bool hasCollisionWith(const Ray& ray, float &t_hit) const override;
+
+    vec3 getNormalAt(const vec3& hitPoint) const override;
 };
 
 #endif

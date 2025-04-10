@@ -30,7 +30,7 @@ public:
 
     //  Shoots ray from origin through screen, seeing what hits, generating corresponding pixels and creating an image
     //  (remember that .ppm image draws from screen going left to right, top to bottom!)
-    void draw() const;
+    void draw(const Scene& scene) const;
     //  Draws an image from a given list of pixels
     void draw(std::vector<Pixel> pixel_list) const;
 

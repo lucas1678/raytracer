@@ -25,6 +25,9 @@ public:
     vec3 getPosition() const {return m_Position;}
 
     virtual bool hasCollisionWith(const Ray& ray) const = 0; //pure abstract method (each shape will have a diff way to check collision with a ray)
+    virtual bool hasCollisionWith(const Ray& ray, float &t_hit) const = 0;
+
+    virtual vec3 getNormalAt(const vec3& hitPoint) const = 0;
 };
 
 #endif

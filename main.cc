@@ -2,27 +2,22 @@
 #include "vec3.hh"
 #include "pixel.hh"
 #include "camera_window.hh"
+#include "scene.hh"
 
 int main(){
     int window_height = 400;
     int window_width = 800;
-    vec3 window_pos{-400,200,-1};
+    vec3 window_pos{-4,2,-1};
+
+
     CameraWindow cam_window{window_height, window_width, window_pos};
-    /*std::vector<Pixel> pixel_list;
+    Scene scene;
+    scene.addObject(new Disk(vec3(0,0,1), 5.0, vec3(0,0,-5), Color::BLUE));
+    scene.addObject(new Disk(vec3(0,0,1), 1.0, vec3(-2,-2,-3), Color::RED));
+    scene.addObject(new Disk(vec3(0,1,0), 100.0, vec3(0,-5,0), Color::GREY));
 
-    for(int i=0; i<window_height; i++){
-        for(int j=0; j<window_width; j++){
-            int red{(int) (255 * ((float)i/window_height))};
-            int green{(int) (255 * ((float)j/window_width))};
-            int blue{0};
 
-            pixel_list.push_back(Pixel(red,green,blue));
-        }
-    }
-
-    cam_window.draw(pixel_list);*/
-
-    cam_window.draw();
+    cam_window.draw(scene);
 
     return 0;
 }

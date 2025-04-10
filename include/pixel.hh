@@ -15,6 +15,10 @@ public:
     }
     ~Pixel() {}
 
+
+    Pixel operator+(const Pixel& pixel) const;
+    friend Pixel operator*(const Pixel& pixel, float scalar);
+    friend Pixel operator*(float scalar, const Pixel& pixel);
     friend std::ostream& operator<<(std::ostream& os, const Pixel& pix);
 public:
     static const Pixel WHITE;
